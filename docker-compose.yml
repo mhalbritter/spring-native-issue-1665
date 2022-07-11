@@ -1,0 +1,21 @@
+version: '3.3'
+
+# Define services
+services:
+
+  # Database Service (Postgres)
+  pgsql:
+    image: postgres:12
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test
+    networks:
+      - backend
+    restart: always
+
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:
